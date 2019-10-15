@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="d-flex">
+  <h2 class="flex-grow-1"><%= @post.title %></h2>
+  <div>
+    <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-sm btn-outline-secondary' %>
+  </div>
+</div>
+<%= render_markdown @post.body %>
+<p class="small">
+  <%= @post.created_at.to_s(:long) %>
+</p>
+
+<% @post.comments.each do |comment| -%>
+  <hr />
+  <%= render_markdown comment.body %>
+  <p class="small">
+    <%= comment.created_at.to_s(:long) %>
+  </p>
+<% end -%>
+
+<hr />
+
+<%= form_for :comment, url: post_comments_path(@post) do |f| -%>
+  <div class="form-group">
+    <%= f.label :body, 'Leave a comment' %>
+    <%= f.text_area :body, class: 'text-monospace', class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Post comment', class: 'btn btn-sm btn-primary' %>
+<% end -%>

@@ -1,0 +1,22 @@
+<h1>My wonderful weblog</h1>
+
+<% @posts.each do |post| %>
+  <section class="mt-4 card">
+    <div class="card-header d-flex">
+      <h2 class="flex-grow-1"><%= link_to post.title, post_path(post) %></h2>
+      <div>
+        <%= link_to "Edit", edit_post_path(post), class: 'btn btn-sm btn-outline-secondary' %>
+      </div>
+    </div>
+    <div class="card-body">
+      <%= render_markdown post.body %>
+
+      <p class="mb-0">
+        <%= link_to pluralize(post.comments.count, 'comment'), post_path(post) %>
+      </p>
+    </div>
+    <p class="small card-footer mb-0">
+      <%= post.created_at.to_s(:long) %>
+    </p>
+  </section>
+<% end %>
