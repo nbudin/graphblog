@@ -9,5 +9,9 @@ module Types
     def body_html
       render_markdown(object.body)
     end
+
+    def post
+      Loaders::RecordLoader.for(Post).load(object.post_id)
+    end
   end
 end

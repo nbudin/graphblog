@@ -26,6 +26,7 @@ gem 'redcarpet'
 
 gem 'graphql'
 gem 'graphql-rails_logger'
+gem 'graphql-batch'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
