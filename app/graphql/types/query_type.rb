@@ -7,5 +7,10 @@ module Types
     def posts
       Post.all.order(:created_at)
     end
+
+    field :comments, [Types::CommentType], null: false
+    def comments
+      Comment.all.order(:created_at)
+    end
   end
 end
