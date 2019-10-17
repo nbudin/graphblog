@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'redcarpet'
 
 gem 'graphql'
+gem 'graphql-rails_logger'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
